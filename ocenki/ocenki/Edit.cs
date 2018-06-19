@@ -26,7 +26,7 @@ namespace ocenki
             if (title.Text.ToLower().Contains("изменить"))
             {
                 //update if exists
-                Main.c.Open();
+                Main.Open();
                 Main.cmd.CommandText = "update ocenki set idStudent = " + Main.studs.Find(x => x.name.ToString() == cb_student.Text).id +
                     ", idSubj = " + Main.subjs.Find(x => x.name.ToString() == cb_subj.Text).id + ", course = " + cb_course.Text + ", mark = " + n_mark.Value + " where id = " + id;
                 Main.cmd.ExecuteNonQuery();
@@ -36,7 +36,7 @@ namespace ocenki
             else
             {
                 //else insert
-                Main.c.Open();
+                Main.Open();
                 Main.cmd.CommandText = "insert into ocenki (idStudent, idSubj, course, mark) values(" + 
                     Main.studs.Find(x => x.name.ToString() == cb_student.Text).id + ", " + 
                     Main.subjs.Find(x => x.name.ToString() == cb_subj.Text).id + ", " +

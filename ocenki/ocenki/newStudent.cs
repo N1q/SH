@@ -35,7 +35,7 @@ namespace ocenki
 
         private void b_done_Click(object sender, EventArgs e)
         {
-            Main.c.Open();
+            Main.Open();
             Main.cmd.CommandText = "insert into student (name, idGroup, course) values('" + cb_name.Text + "', '" + (cb_group.SelectedIndex + 1) + "', '" + cb_course.Text + "')";
             Main.cmd.ExecuteNonQuery();
             Main.c.Close();

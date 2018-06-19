@@ -28,7 +28,7 @@ namespace ocenki
         public static void Refill()
         {
             //get marks
-            c.Open();
+            Open();
             cmd.CommandText = "select * from ocenki";
             r = cmd.ExecuteReader();
             marks.Clear();
@@ -48,7 +48,7 @@ namespace ocenki
             c.Close();
 
             //get students
-            c.Open();
+            Open();
             cmd.CommandText = "select * from student";
             r = cmd.ExecuteReader();
             studs.Clear();
@@ -67,7 +67,7 @@ namespace ocenki
             c.Close();
 
             //get groups
-            c.Open();
+            Open();
             cmd.CommandText = "select * from ocenki.`group`";
             r = cmd.ExecuteReader();
             groups.Clear();
@@ -85,7 +85,7 @@ namespace ocenki
             c.Close();
 
             //get subjs
-            c.Open();
+            Open();
             cmd.CommandText = "select * from subj";
             r = cmd.ExecuteReader();
             subjs.Clear();
@@ -212,6 +212,11 @@ namespace ocenki
         private void печатьToolStripMenuItem_Click(object sender, EventArgs e)
         {
             printPreviewDialog1.ShowDialog();
+        }
+        public static void Open()
+        {
+            if (c.State != ConnectionState.Open)
+                c.Open();
         }
     }
     public class Mark
